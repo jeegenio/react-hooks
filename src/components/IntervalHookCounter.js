@@ -3,7 +3,6 @@ import { useEffect } from "react/cjs/react.development";
 
 function IntervalHookCounter() {
   const [sec, setSec] = useState(10);
-  const [mins, setMins] = useState(60);
 
   const tick = () => {
     setSec((prev) => prev - 1);
@@ -13,6 +12,7 @@ function IntervalHookCounter() {
   };
 
   useEffect(() => {
+    console.log("effect");
     const interval = setInterval(tick, 1000);
     return () => {
       clearInterval(interval);
@@ -21,7 +21,6 @@ function IntervalHookCounter() {
   return (
     <div>
       <div>{sec}</div>
-      <div>{mins}</div>
     </div>
   );
 }
